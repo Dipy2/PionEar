@@ -1,5 +1,6 @@
 # PionEar
-PionEear smart sesnor for emergency vehicle alarm detection.
+PionEar smart sesnor for emergency vehicle alarm detection.
+
 More about the project can be found here:
 https://hackaday.io/project/191087-pionear-making-roads-safer-for-deaf-drivers
 
