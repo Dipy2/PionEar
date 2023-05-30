@@ -46,7 +46,7 @@ uint32_t currentPointer;                                    // This is the point
 uint32_t oldPointer=0;                                      // This variable is to determine if there is new data written or not
 uint32_t tankRead;                                          // Local variable to hold value of value read from NDP
 int match;
-uint32_t detection_count = 0;                                //Promenna filteru
+uint32_t detection_count = 0;                                //Filter variable
 extern bool sirenDetected;
 
 void turnOnLED(int classifier, int openSetClassifier){
@@ -58,10 +58,10 @@ void turnOnLED(int classifier, int openSetClassifier){
                     digitalWrite(LED_GREEN, LOW);           // Turning OFF GREEN LED for Classifier 0
                     digitalWrite(LED_BLUE, LOW);            // Turning OFF BLUE LED for Classifier 0
                     }
-    if (classifier==1)                                      // Toto je zvuk sireny
+    if (classifier==1)                                      // This is sound of siren
                     {
-                    detection_count++;                      //Jednoduchý counter, který má fungovat jako filtr proti náhodnému poblikávání (V podstate mi to vyresilo tento problem)
-                    if(detection_count > 15)                 //Jednoduchý counter, který má fungovat jako filtr proti náhodnému poblikávání (V podstate mi to vyresilo tento problem)
+                    detection_count++;                      //Simple counter that acts as an filter. This solves an issue with random short-time blinking
+                    if(detection_count > 15)                 //Simple counter that acts as an filter. This solves an issue with random short-time blinking
                     {
                       sirenDetected = true;
                       digitalWrite(LED_GREEN, HIGH);          // Turning OFF GREEN LED for Classifier 1
@@ -70,8 +70,8 @@ void turnOnLED(int classifier, int openSetClassifier){
                     }
 
                     }
-     else{                                                      //Jednoduchý counter, který má fungovat jako filtr proti náhodnému poblikávání
-           detection_count = 0;                                 //Jednoduchý counter, který má fungovat jako filtr proti náhodnému poblikávání
+     else{                                                      //Simple counter that acts as an filter. This solves an issue with random short-time blinking
+           detection_count = 0;                                 //Simple counter that acts as an filter. This solves an issue with random short-time blinking
          }
    
  //   if (classifier==1)digitalWrite(LED_BLUE, HIGH);           // Turning on GREEN LED for Classifier 2 // upto 7 distinct colors can be generated  
